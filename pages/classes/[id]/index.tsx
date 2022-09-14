@@ -94,9 +94,6 @@ export default function Index() {
     xField: "value",
     yField: "year",
     seriesField: "year",
-    legend: {
-      position: "top-left",
-    },
   };
 
   return (
