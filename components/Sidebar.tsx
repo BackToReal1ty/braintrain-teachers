@@ -28,7 +28,6 @@ const APP_SIDENAV_TABS: AppSideNavTab[] = [
     link: "/classes",
     icon: <GroupOutlined className="pr-2" />,
   },
-  { name: "Groups", link: `/groups`, icon: <UserOutlined className="pr-2" /> },
   {
     name: "Schedule",
     link: "/schedule",

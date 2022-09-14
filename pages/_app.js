@@ -2,7 +2,7 @@ import Nav from "../components/Nav";
 import Sidebar from "../components/Sidebar";
 
 import "../styles/globals.css";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 function MyApp({ Component, pageProps }) {
   return (

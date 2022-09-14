@@ -5,6 +5,8 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <title>BrainTrain Teachers</title>
+        <link rel="icon" href="/favicon_black.png" />
         <link rel="stylesheet" href="..." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

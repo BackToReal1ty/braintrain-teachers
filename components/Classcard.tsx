@@ -1,8 +1,7 @@
 import { FC } from "react";
-
 import { Text, Avatar } from "@chakra-ui/react";
 import { Pie, measureTextWidth } from "@ant-design/plots";
-
+import Link from "next/link";
 interface ClassCardProps {
   name?: string;
   studentImg?: string;
@@ -139,24 +138,26 @@ const config = {
 
 const Classcard: FC<ClassCardProps> = ({ name, studentImg, studentName }) => {
   return (
-    <div className="p-4 shadow-lg rounded-3xl">
-      <Text fontSize="lg" className="font-semibold text-center">
-        Class {name ? name : "3A"}
-      </Text>
-      <div className="grid grid-cols-2">
-        <div className="grid grid-cols-5">
-          {renderStudents(studentImg, studentName)}
-          {renderStudents(studentImg, studentName)}
-          {renderStudents(studentImg, studentName)}
-          {renderStudents(studentImg, studentName)}
-          {renderStudents(studentImg, studentName)}
-        </div>
+    <Link href={`classes/${name ? name : "3A"}`}>
+      <div className="p-4 shadow-lg cursor-pointer rounded-3xl hover:shadow-2xl hover:transition-shadow">
+        <Text fontSize="lg" className="font-semibold text-center">
+          Class {name ? name : "3A"}
+        </Text>
+        <div className="grid grid-cols-2">
+          <div className="grid grid-cols-5">
+            {renderStudents(studentImg, studentName)}
+            {renderStudents(studentImg, studentName)}
+            {renderStudents(studentImg, studentName)}
+            {renderStudents(studentImg, studentName)}
+            {renderStudents(studentImg, studentName)}
+          </div>
 
-        <div>
-          <Pie {...config} />
+          <div>
+            <Pie {...config} />
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

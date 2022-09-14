@@ -1,8 +1,6 @@
-import Head from "next/head";
-import Classcard from "../components/Classcard";
-import { Pie, measureTextWidth } from "@ant-design/plots";
+import Classcard from "../../components/Classcard";
 
-export default function Home() {
+export default function Index() {
   return (
     <div>
       <div className="md:grid md:grid-cols-2 md:gap-4">
@@ -14,6 +12,7 @@ export default function Home() {
         ></Classcard>
         <Classcard name="1C"></Classcard>
         <Classcard name="4E"></Classcard>
+        <Classcard></Classcard>
       </div>
     </div>
   );
