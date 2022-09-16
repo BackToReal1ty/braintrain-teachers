@@ -29,6 +29,7 @@ export default function Index() {
           </Timeline>
         </div>
       </div>
+
       <div className="pt-4">
         <Text
           fontSize="2xl"

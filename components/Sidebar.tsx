@@ -4,10 +4,7 @@ import { useRouter } from "next/router";
 import {
   AppstoreFilled,
   GroupOutlined,
-  UserOutlined,
   CalendarOutlined,
-  SettingOutlined,
-  LogoutOutlined,
 } from "@ant-design/icons";
 import { Avatar, Text, Divider } from "@chakra-ui/react";
 

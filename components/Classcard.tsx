@@ -2,6 +2,9 @@ import { FC } from "react";
 import { Text, Avatar } from "@chakra-ui/react";
 import { Pie, measureTextWidth } from "@ant-design/plots";
 import Link from "next/link";
+import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
+import { DownOutlined } from "@ant-design/icons";
+
 interface ClassCardProps {
   name?: string;
   studentImg?: string;
@@ -56,21 +59,12 @@ function renderStatistic(containerWidth, text, style) {
 
 const data = [
   {
-    type: "Kinaesthetic",
-    value: 5,
+    type: "Unmarked",
+    value: 25,
   },
   {
-    type: "Visual",
-    value: 7,
-  },
-  {
-    type: "Auditory",
-    value: 9,
-  },
-
-  {
-    type: "Read/Write",
-    value: 13,
+    type: "Completed",
+    value: 75,
   },
 ];
 const config = {
@@ -100,7 +94,7 @@ const config = {
       customHtml: (container, view, datum) => {
         const { width, height } = container.getBoundingClientRect();
         const d = Math.sqrt(Math.pow(width / 2, 2) + Math.pow(height / 2, 2));
-        const text = datum ? datum.type : "Students";
+        const text = datum ? datum.type : "Grades Completed";
         return renderStatistic(d, text, {
           fontSize: 28,
         });
@@ -122,7 +116,7 @@ const config = {
       },
     },
   },
-  // 添加 中心统计文本 交互
+
   interactions: [
     {
       type: "element-selected",
@@ -138,12 +132,30 @@ const config = {
 
 const Classcard: FC<ClassCardProps> = ({ name, studentImg, studentName }) => {
   return (
-    <Link href={`classes/${name ? name : "3A"}`}>
-      <div className="p-4 shadow-lg cursor-pointer rounded-3xl hover:shadow-2xl hover:transition-shadow">
-        <Text fontSize="lg" className="font-semibold text-center">
+    <div className="shadow-lg rounded-3xl hover:shadow-2xl hover:transition-shadow ">
+      <div className="flex rounded-t-3xl bg-braintrain_green">
+        <Text
+          fontSize="2xl"
+          className="pt-2 pb-4 pl-4 font-semibold text-white "
+        >
           Class {name ? name : "3A"}
         </Text>
-        <div className="grid grid-cols-2">
+        {/* <div className="justify-self-end">
+          <Menu>
+            <MenuButton as={Button} rightIcon={<DownOutlined />}>
+              Filter by
+            </MenuButton>
+            <MenuList>
+              <MenuItem>All Flagged</MenuItem>
+              <MenuItem>Flagged by System</MenuItem>
+              <MenuItem>Flagged by Me</MenuItem>
+            </MenuList>
+          </Menu>
+        </div> */}
+      </div>
+
+      <Link href={`classes/${name ? name : "3A"}`}>
+        <div className="grid grid-cols-2 px-4 pt-8 pb-10 cursor-pointer bg-braintrain_gray rounded-b-3xl">
           <div className="grid grid-cols-5">
             {renderStudents(studentImg, studentName)}
             {renderStudents(studentImg, studentName)}
@@ -156,8 +168,8 @@ const Classcard: FC<ClassCardProps> = ({ name, studentImg, studentName }) => {
             <Pie {...config} />
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 
