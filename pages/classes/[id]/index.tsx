@@ -8,12 +8,15 @@ import {
   ArrowRightOutlined,
   ArrowLeftOutlined,
   CheckOutlined,
+  TrophyFilled,
+  FireFilled,
 } from "@ant-design/icons";
 import React, { useState } from "react";
 import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import { Bar } from "@ant-design/plots";
 import type { DatePickerProps, RangePickerProps } from "antd/es/date-picker";
 import { DatePicker, Modal, InputNumber, Slider } from "antd";
+import Link from "next/link";
 
 export default function Index() {
   const router = useRouter();
@@ -26,55 +29,65 @@ export default function Index() {
       // random flag
       if (i == 5 || i == 28) {
         students.push(
-          <div className="pb-4 text-center">
-            <Avatar
-              size="lg"
-              name="Dan Abrahmov"
-              src={studentImg ? studentImg : "https://i.imgur.com/Y0hoNEA.jpeg"}
-            />
-            <FlagFilled
-              className="pl-2 text-xl cursor-pointer hover:opacity-50"
-              style={{ color: "red" }}
-            />
-            <Text fontSize="lg " className="pr-6">
-              {studentName ? studentName : "Chad"}
-            </Text>
-          </div>
+          <Link href={"/404"}>
+            <div className="pb-4 text-center cursor-pointer">
+              <Avatar
+                size="lg"
+                name="Dan Abrahmov"
+                src={
+                  studentImg ? studentImg : "https://i.imgur.com/Y0hoNEA.jpeg"
+                }
+              />
+              <FlagFilled
+                className="pl-2 text-xl cursor-pointer hover:opacity-50"
+                style={{ color: "red" }}
+              />
+              <Text fontSize="lg " className="pr-6">
+                {studentName ? studentName : "Chad"}
+              </Text>
+            </div>
+          </Link>
         );
       }
 
       // random flag
       if (i == 8 || i == 12) {
         students.push(
-          <div className="pb-4 text-center">
+          <Link href={"/404"}>
+            <div className="pb-4 text-center cursor-pointer">
+              <Avatar
+                size="lg"
+                name="Dan Abrahmov"
+                src={
+                  studentImg ? studentImg : "https://i.imgur.com/Y0hoNEA.jpeg"
+                }
+              />
+              <FlagFilled
+                className="pl-2 text-xl cursor-pointer hover:opacity-50"
+                style={{ color: "orange" }}
+              />
+              <Text fontSize="lg " className="pr-6">
+                {studentName ? studentName : "Chad"}
+              </Text>
+            </div>
+          </Link>
+        );
+      }
+
+      students.push(
+        <Link href={"/404"}>
+          <div className="pb-4 text-center cursor-pointer">
             <Avatar
               size="lg"
               name="Dan Abrahmov"
               src={studentImg ? studentImg : "https://i.imgur.com/Y0hoNEA.jpeg"}
             />
-            <FlagFilled
-              className="pl-2 text-xl cursor-pointer hover:opacity-50"
-              style={{ color: "orange" }}
-            />
+            <FlagOutlined className="pl-2 text-xl opacity-50 cursor-pointer hover:opacity-100 " />
             <Text fontSize="lg " className="pr-6">
               {studentName ? studentName : "Chad"}
             </Text>
           </div>
-        );
-      }
-
-      students.push(
-        <div className="pb-4 text-center">
-          <Avatar
-            size="lg"
-            name="Dan Abrahmov"
-            src={studentImg ? studentImg : "https://i.imgur.com/Y0hoNEA.jpeg"}
-          />
-          <FlagOutlined className="pl-2 text-xl opacity-50 cursor-pointer hover:opacity-100 " />
-          <Text fontSize="lg " className="pr-6">
-            {studentName ? studentName : "Chad"}
-          </Text>
-        </div>
+        </Link>
       );
     }
     return students;
@@ -473,7 +486,7 @@ export default function Index() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-2 pr-2">
         <div className="pt-4">
           <Text
             fontSize="2xl"
@@ -544,13 +557,80 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="pt-4">
+        <div className="pt-4 pl-2">
           <Text
             fontSize="2xl"
             className="pt-2 pb-4 pl-4 font-semibold text-white rounded-t-3xl bg-braintrain_green "
           >
             Habit Pairs Leaderboard
           </Text>
+
+          <div className="grid grid-cols-1 pt-2 bg-braintrain_gray rounded-b-3xl">
+            <div className="grid grid-cols-4 py-4 mx-4 my-2 text-white bg-braintrain_green rounded-xl">
+              <Text fontSize={"3xl"} className="font-bold pl-14">
+                1
+              </Text>
+              <Text fontSize={"3xl"} className="col-span-2 ">
+                Chad and Joe
+              </Text>
+              <div className="flex">
+                <Text fontSize={"3xl"} className="font-bold">
+                  21
+                </Text>
+                <FireFilled style={{ fontSize: "40px", color: "#FFA500" }} />
+              </div>
+            </div>
+            <div className="grid grid-cols-4 py-4 mx-4 my-2 bg-white rounded-xl">
+              <TrophyFilled style={{ fontSize: "50px", color: "#C0C0C0" }} />
+              <Text fontSize={"3xl"} className="col-span-2 ">
+                Chad and Joe
+              </Text>
+              <div className="flex">
+                <Text fontSize={"3xl"} className="font-bold">
+                  21
+                </Text>
+                <FireFilled style={{ fontSize: "40px", color: "#FFA500" }} />
+              </div>
+            </div>
+            <div className="grid grid-cols-4 py-4 mx-4 my-2 bg-white rounded-xl">
+              <TrophyFilled style={{ fontSize: "50px", color: "#CD7F32" }} />
+              <Text fontSize={"3xl"} className="col-span-2 ">
+                Chad and Joe
+              </Text>
+              <div className="flex">
+                <Text fontSize={"3xl"} className="font-bold">
+                  21
+                </Text>
+                <FireFilled style={{ fontSize: "40px", color: "#FFA500" }} />
+              </div>
+            </div>
+            <div className="grid grid-cols-4 py-4 mx-4 my-2 bg-white rounded-xl">
+              <Text fontSize={"3xl"} className="font-bold pl-14">
+                4
+              </Text>
+              <Text fontSize={"3xl"} className="col-span-2 ">
+                Chad and Joe
+              </Text>
+              <div className="flex">
+                <Text fontSize={"3xl"} className="font-bold">
+                  21
+                </Text>
+                <FireFilled style={{ fontSize: "40px", color: "#FFA500" }} />
+              </div>
+            </div>
+            <div className="grid grid-cols-4 py-4 mx-4 my-2 bg-white rounded-xl">
+              <TrophyFilled style={{ fontSize: "50px", color: "#FFD700" }} />
+              <Text fontSize={"3xl"} className="col-span-2 ">
+                Chad and Joe
+              </Text>
+              <div className="flex">
+                <Text fontSize={"3xl"} className="font-bold">
+                  21
+                </Text>
+                <FireFilled style={{ fontSize: "40px", color: "#FFA500" }} />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
