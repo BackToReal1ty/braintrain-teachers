@@ -33,16 +33,6 @@ const APP_SIDENAV_TABS: AppSideNavTab[] = [
     link: "/schedule",
     icon: <CalendarOutlined className="pr-2" />,
   },
-  {
-    name: "Settings",
-    link: "/settings",
-    icon: <SettingOutlined className="pr-2" />,
-  },
-  {
-    name: "Log Out",
-    link: "/logout",
-    icon: <LogoutOutlined className="pr-2" />,
-  },
 ];
 
 const Sidebar = () => {
@@ -77,9 +67,9 @@ const Sidebar = () => {
         <div
           key={i}
           className={`px-3 py-2 cursor-pointer border-l-4 flex items-center ${
-            tab.link === linkClassName
-              ? "text-braintrain_blue border-braintrain_blue "
-              : "text-gray-400 border-transparent hover:text-braintrain_navy hover:font-medium"
+            tab.link.includes(linkClassName)
+              ? "bg-braintrain_green rounded-xl mx-2 text-white font-medium my-2"
+              : "text-gray-400 border-transparent  hover:font-medium  hover:bg-braintrain_green hover:rounded-xl mx-2  hover:text-white"
           }`}
         >
           {tab.icon}

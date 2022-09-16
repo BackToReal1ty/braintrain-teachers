@@ -3,6 +3,7 @@ import Sidebar from "../components/Sidebar";
 
 import "../styles/globals.css";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import "antd/dist/antd.css";
 
 function MyApp({ Component, pageProps }) {
   return (
